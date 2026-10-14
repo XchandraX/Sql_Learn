@@ -27,11 +27,12 @@ Menggabungkan beberapa kondisi memerlukan operator AND, OR, dan NOT. Di sinilah 
 
 ## Operator Spesifik Relasional dan Pola
 SQL membekali pengembang dengan operator perbandingan tingkat lanjut yang dirancang khusus untuk struktur relasional:
+
 - BETWEEN (Rentang Inklusif): Lebih bersih dan efisien daripada A >= 1 AND A <= 10. Hati-hati saat menggunakan BETWEEN pada tipe data DATETIME, karena tanpa spesifikasi jam, tanggal batas akhir akan dievaluasi pada tepat pukul 00:00:00 (tengah malam).
 
 - IN (Keanggotaan Himpunan): mengevaluasi apakah sebuah nilai cocok dengan salah satu dari sekumpulan nilai dalam daftar. Secara internal, IN (1, 2, 3) dioptimalkan jauh lebih baik oleh query optimizer dibandingkan rentetan OR (A = 1 OR A = 2 OR A = 3).
 
-LIKE (Pola Karakter): Menggunakan karakter wildcard % (nol atau banyak karakter) dan _ (tepat satu karakter). Menggunakan leading wildcard seperti LIKE '%kata' memaksa sistem melakukan Full Table Scan (pemindaian memori penuh) karena tidak dapat membaca indeks dari kiri ke kanan
+- LIKE (Pola Karakter): Menggunakan karakter wildcard % (nol atau banyak karakter) dan _ (tepat satu karakter). Menggunakan leading wildcard seperti LIKE '%kata' memaksa sistem melakukan Full Table Scan (pemindaian memori penuh) karena tidak dapat membaca indeks dari kiri ke kanan
 
 ## Operator Eksistensi (Subquery Evaluation)
 - EXISTS dan NOT EXISTS: Digunakan secara eksklusif untuk mengevaluasi apakah sebuah subquery mengembalikan setidaknya satu baris. Secara performa, EXISTS sangat efisien utnuk tabel masif karena ia beroperasi menggunakan logika "berhenti pada kecocokan pertama" (early out/ semi-join), berbeda dengan IN yang memuat seluruh set hasil subquery ke dalam memori
