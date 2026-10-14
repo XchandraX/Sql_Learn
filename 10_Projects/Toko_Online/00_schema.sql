@@ -48,11 +48,11 @@ INSERT INTO pelanggan (id_pelanggan, nama, email, kota, bergabung_pada, saldo, p
 (4, 'Dewi', 'dewi@mail.com', 'Surabaya', '2024-04-01', 0.00, NULL);
 
 INSERT INTO produk (id_produk, nama_produk, kategori, harga, stok, dibuat_pada) VALUES
-(101, 'Laptop', 'Elektronik', 12000000.00, 10 '2024-01-01 10:00:00'),
+(101, 'Laptop', 'Elektronik', 12000000.00, 10, '2024-01-01 10:00:00'),
 (102, 'Mouse', 'Elektronik', 150000.00, 50, '2024-01-02 11:00:00'),
 (103, 'Buku SQL', 'Buku', 200000.00, 30, '2024-01-03 12:00:00'),
 (104, 'Meja', 'Furnitur', 750000.00, 5, '2024-01-04 13:00:00'),
-(105, 'Keyboard', 'Elektronik', 300000.00, 20, '2024-01-05 14:000:000');
+(105, 'Keyboard', 'Elektronik', 300000.00, 20, '2024-01-05 14:00:00');
 
 INSERT INTO pesanan (id_pesanan, id_pelanggan, tanggal_pesanan, status, total) VALUES
 (1001, 1, '2025-01-05 10:20:00', 'SELESAI', 12150000.00),
@@ -63,5 +63,3 @@ INSERT INTO detail_pesanan (id_pesanan, id_produk, kuantitas, harga_satuan) VALU
 (1001, 102, 1, 150000.00),
 (1002, 102, 1, 150000.00),
 (1002, 103, 1, 200000.00),
-(1003, 103, 1, 200000.00),
-(1004, 104, 1, 750000.00);

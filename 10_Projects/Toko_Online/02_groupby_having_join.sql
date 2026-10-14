@@ -12,12 +12,14 @@ JOIN pesanan o ON p.id_pelanggan = o.id_pelanggan
 WHERE o.status = 'SELESAI';
 
 -- Hitung total penjualan per kategori produk dari pesanan berstatus SELESEI.
-SELECT pr.kategori, SUM(dp.kuantitas * dp.harga_satuan) AS total_penjualan
+SELECT pr.kategori, 
+        SUM(dp.kuantitas * dp.harga_satuan) AS total_penjualan
 FROM detail_pesanan dp
 JOIN produk pr ON dp.id_produk = pr.id_produk
-JOIN pesanan o ON dp.id_pesanan = o.id_pelanggan
+JOIN pesanan o ON dp.id_pesanan = o.id_pesanan
 WHERE o.status = 'SELESAI'
 GROUP BY pr.kategori;
+
 
 -- Tampilkan pelanggan yang total belanjanya (status SELESAI) lebih dari 1.000.000
 SELECT p.nama, SUM(o.total) AS total_belanja

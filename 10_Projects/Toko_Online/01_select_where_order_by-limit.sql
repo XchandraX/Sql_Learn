@@ -13,6 +13,6 @@ ORDER BY harga DESC;
 
 -- Tampilkan 2 pesanan terbaru berdasarkan tanggal_pesanan.
 SELECT *
-FROM detail_pesanan
+FROM pesanan
 ORDER BY tanggal_pesanan DESC
 LIMIT 2;

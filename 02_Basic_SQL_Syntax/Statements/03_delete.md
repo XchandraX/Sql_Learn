@@ -1,0 +1,12 @@
+# Perintah DELETE
+pisau bedah dalam manajemen basis data: sangat presisi saat dibantu klausa WHERE, namun bisa berdamapak fatal jika dieksekusi tanpa pengamanan yang memadai.
+
+- Pencatatan Transaksional (Transaction Logging): Secara internal, DELETE tidak langsung melenyapkan data secara fisik begitu saja. RDBMS mencatat setiap baris yang dihapus satu per satu ke dalam transaction log. Mekanisme ini krusial karena memungkinkan perintah tersebut dibatalkna (di-rollback) jika transaksi gagal di tengah jalan. Konsekuensiny, proses pencatatan baris-demi-baris ini membuat DELTE berkinerja sangat lambat jika digunakan untuk menghapus jutaan baris data sekaligus.
+
+- Integritas Relasional (Foreign Key Contraints): RDBMS akan bertindak sebagai penjaga gawang jika Kita mencoba menghapus data yang saling terkait. Misalnya, mencoba menghapus "Pelanggan A" sementara ia masih memiliki data di tabel "Pesanan" aka nmemicu error. Sistem mencegah terbentuknya orphan records (data yang merujuk pada entitas yang sudah tidak ada). Hal ini biasanya diselesaikan dengan mengatur relasi menggunakan ON DELETE CASCADE, di mana penghapusan data induk akan secara otomatis menghapus data turunannya.
+
+- Praktik Keamanan Soft Delete: Dalam arsitektur perangkat lunak modern, data pengguna atau transaksi yang bersifat historis jarang benar-benar dihapus secara permanen (Hard Delete). Pengembang menggunakan teknik Soft Delete, yoitu menyisipkan perintah UPDATE untuk mengubah nilai kolom status (misalnya is_active = FALSE atau deleted_at = CURRENT_TIMESTAMP). Data tetap tersimpan secara fisik untuk keperluan audit, hukum, atau analitik, namun disembunyikan di level aplikasi.
+
+- TRUNCATE sebagai lternatif Pengosongan: Jika tujuan utama Kita memang menghapus seluruh isi tabel (seperti efek dari DELETE tanpa WHERE), praktik yang tepat adalah menggunakan perintah TRUNCATE TABLE. Berbeda dengan DELETE, perintah TRUNCATE beroperasi pada level DDL (Data Definition Language). Ia tidak mencatat log per baris, melainkan langsung melepaskan alokasi blok memori (data pages) tabel tersebut, menjadikannya instan dan sangat efisien.
+
+untuk menghindari bencana penghapusan data tanpa sengaja, administrator baisi data yang berpengalaman memiliki aturan emas: Selalu uji kondisi logika Kita menggunakan SELECT sebelum menggantinya dengan kata DELETE.
