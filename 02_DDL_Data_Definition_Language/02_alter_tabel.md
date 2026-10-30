@@ -10,7 +10,7 @@ Pada banyak sistem RDBMS, mengubah struktur fisik table mengharuskan mesin untuk
 Beberapa perintah, seperti mengganti nama kolom, umunya berjalan instan karena sistem hanya memperbarui kamus data (meta-data). Namun, mengubah tipe data (misalnya dari VARCHAR ke BIGINT) memaksa mesin RDBMS membuat salinan table kosong di latar belakang, Mengonversi dan memindahkan data satu per satu, lalu menukar table lama dengan yang baru. Ini sangat menguras CPU dan ruang disk.
 
 - Jebakan Kolom DEFAULT:
-Di sistem lawas, menambahkan kolom baru yang memiliki atribut DEFAULT (misalnya DEFAULT 0) akan memaksa sistem menulis angak 0 ke jutaan baris data secara fisik. RdBMS modern seperti PostgreSQL 11+ dan MySQL 8 telah mengoptimalkan ini: mereka hanya mencatat aturan default di meta-data, sehingga penambahan kolom berjalan dalam hitungan milidetik tanpa memedulikan seberapa besar tabelnya.
+Di sistem lawas, menambahkan kolom baru yang memiliki atribut DEFAULT (misalnya DEFAULT 0) akan memaksa sistem menulis angka 0 ke jutaan baris data secara fisik. RdBMS modern seperti PostgreSQL 11+ dan MySQL 8 telah mengoptimalkan ini: mereka hanya mencatat aturan default di meta-data, sehingga penambahan kolom berjalan dalam hitungan milidetik tanpa memedulikan seberapa besar tabelnya.
 
 - Validasi Konstrain Mundur:
 Jika Kita menyuntikkan aturan baru (seperti UNIQUE atau FOREIGN KEY) melalui ALTER TABLE, RDBMS akan langsung memindai seluruh data historis. Jika ditemukan satu saja baris lama yang melanggar aturan ini (misalnya ada nilai duplikat saat Kita menerapkan UNIQUE), maka seluruh perintah modifikasi akan langsung digagalkan dan di-rollback.
