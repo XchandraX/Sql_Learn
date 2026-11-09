@@ -1,0 +1,8 @@
+Koperasi FKOM adalah sebuah koperasi yang mengelola simpan pinjam bagi para anggotanya, berikut ini adalah kegiatan yang dilakukan oleh bagian Kredit dalam menangani pemberian pinjaman bagi para anggotanya.
+
+Setiap kali bagian kredit akan memberikan pinjaman kepada Anggota maka Anggota diharuskan mengisi Formulir Permohonan Pinjaman yang berisi Nomor FPP, Tanggal Permohonan, Nomor Anggota, Nama Anggota, Jumlah Permohonan dan Keperluan (rincian data diambil dari analisa dokumen yang ada). Yang kemudian oleh Bagian Kredit dicatat dan disimpan kedalam Arsip FPP. Berdasarkan Arsip FPP tersebut Bagian Kredit
+membuat Bukti Peminjaman yang diberikan kepada Anggota yang berisi No. BP, tgl BP, Nomor Anggota, Nama Anggota, Jumlah Realisasi, Lama Angsuran, Jumlah Angsuran dan Bunga. Sebelum pemberian bukti terlebih dulu dilakukan pengecekan apakah anggota masih punya pinjaman, jika masih punya maka anggota diberitahukan penolakan pinjaman.
+
+Setiap Bulan Anggota diharuskan membayar Angsuran sejumlah Angsuran yang disepakati pada saat Peminjaman yang kemudian oleh bagian Kredit dicatat dan direkam kedalam Arsip Angsuran. Berdasarkan Arsip Angsuran tersebut bagian Kredit membuat Bukti Angsuran yang diberikan kepada Anggota yang berisi No. BA, Tanggal BA, No. BP, Jumlah Angsur dan Bunga
+
+Pada akhir bulan Bagian Kredit selalu membuat Laporan Peminjaman dan Laporan Angsuran yang diberikan Kepada Ketua Koperasi.
